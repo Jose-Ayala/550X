@@ -62,7 +62,7 @@ $(document).ready(async function () {
 				let eventDateCell = $('<td></td>').text(new Date(award.event.start_date).toLocaleDateString('en-US', {
 					month: '2-digit',
 					day: '2-digit',
-					year: 'numeric'
+					year: '2-digit'
 				}));
 
     row.append(awardTitleCell);
