@@ -84,9 +84,9 @@ $(document).ready(async function () {
                     <table class="table table-striped">
                         <tr>
                             <th>Rank</th>
-                            <th>Wins</th>
-                            <th>Losses</th>
-                            <th>Ties</th>
+                            <th>Win</th>
+                            <th>Loss</th>
+                            <th>Tie</th>
                             <th>WP</th>
                             <th>AP</th>
                             <th>SP</th>
