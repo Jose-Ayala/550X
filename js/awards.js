@@ -50,21 +50,27 @@ $(document).ready(async function () {
             let awardsTableBody = $('#awardsTable tbody');
             awardsTableBody.empty(); // Clear any existing content
 
-            cachedAwardsData.forEach(function (award) {
-                let row = $('<tr></tr>');
-                let awardTitleCell = $('<td></td>').text(award.title);
-                let eventNameCell = $('<td></td>').text(award.event.name);
-                let eventDateCell = $('<td></td>').text(new Date(award.event.start_date).toLocaleDateString('en-US', {
-                    month: '2-digit',
-                    day: '2-digit',
-                    year: 'numeric'
-                }));
+            // Inside your forEach loop for cachedAwardsData
+			cachedAwardsData.forEach(function (award) {
+				let row = $('<tr></tr>');
+				
+				// Use regex to remove everything in parentheses, including the parentheses themselves
+				let cleanedTitle = award.title.replace(/\s*\(.*?\)\s*/g, '').trim();
 
-                row.append(awardTitleCell);
-                row.append(eventNameCell);
-                row.append(eventDateCell);
-                awardsTableBody.append(row);
-            });
+				let awardTitleCell = $('<td></td>').text(cleanedTitle);
+				let eventNameCell = $('<td></td>').text(award.event.name);
+				let eventDateCell = $('<td></td>').text(new Date(award.event.start_date).toLocaleDateString('en-US', {
+					month: '2-digit',
+					day: '2-digit',
+					year: 'numeric'
+				}));
+
+    row.append(awardTitleCell);
+    row.append(eventNameCell);
+    row.append(eventDateCell);
+    awardsTableBody.append(row);
+});
+
         }
     } catch (error) {
         console.error('Error:', error);
